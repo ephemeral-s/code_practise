@@ -18,6 +18,9 @@ out/
 bin/
 obj/
 
+# Claude Code
+.claude/
+
 # Editor and IDE files
 .vscode/
 .idea/
