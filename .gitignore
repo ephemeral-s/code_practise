@@ -1,0 +1,48 @@
+# Compiled binaries and object files
+*.o
+*.a
+*.so
+*.so.*
+*.out
+
+# Executables (no extension, common for C/C++ on Linux)
+# Track source but ignore build outputs — add specific binary names if needed
+
+# Makefile build artifacts
+*.d
+*.dep
+
+# Common build directories
+build/
+out/
+bin/
+obj/
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Core dumps
+core
+core.*
+
+# Valgrind output
+vgcore.*
+callgrind.out.*
+massif.out.*
+
+# GDB history
+.gdb_history
+
+# clangd / compile_commands
+compile_commands.json
+.cache/
+
+# Address sanitizer / coverage artifacts
+*.gcno
+*.gcda
+*.gcov
