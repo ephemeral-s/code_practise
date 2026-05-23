@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <sys/stat.h>
 
@@ -10,18 +11,14 @@ public:
     //从特定文件读取资源
     static bool ReadFileContent(const std::string& filename, std::string& out)
     {
-        out.clear();
-        std::fstream in(filename);
+        std::ifstream in(filename, std::ios::binary);
         if(!in.is_open())
         {
             return false;
         }
-        std::string line;
-        while(std::getline(in, line))
-        {
-            out += line;
-        }
-        in.close();
+        std::ostringstream oss;
+        oss << in.rdbuf();
+        out = oss.str();
         return true;
     }
 

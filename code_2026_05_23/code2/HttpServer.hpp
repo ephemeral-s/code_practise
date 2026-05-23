@@ -9,7 +9,7 @@
 #include <memory>
 #include "Util.hpp"
 
-const std::string webroot = "./www";
+const std::string webroot = "../www";
 const std::string homepage = "/index.html";
 const std::string page_404 = "/404.html";
 
@@ -176,11 +176,30 @@ public:
     }
 
     void HanderRequest(std::shared_ptr<Socket> sock, const std::string& ip, uint16_t port) {
-        
+        //接收消息
+        std::string reqstr;
+        int n = sock->Recv(reqstr);
+        if(n > 0) {
+            //反序列化
+            HttpRequest req;
+            req.Deserialize(reqstr);
+
+            //构建应答
+            HttpResponse resp;
+            resp.SetTargetFile(req.Uri());
+            resp.MakeResponse();
+
+            //序列化应答并发送消息
+            std::string respstr = resp.Serialize();
+            sock->Send(respstr);
+        }
     }
 
     void Start() {
-
+        _tsvr->Start([this](std::shared_ptr<Socket>& sock, const std::string& ip, uint16_t port)
+        {
+            this->HanderRequest(sock, ip, port);
+        });
     }
 private:
     uint16_t _port;
