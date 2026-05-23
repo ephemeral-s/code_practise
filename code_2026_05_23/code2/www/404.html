@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - 页面好像迷路了</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: #f4f7f6;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 500px;
+        }
+
+        .error-code {
+            font-size: 120px;
+            font-weight: 900;
+            line-height: 1;
+            color: #2d3748;
+            margin-bottom: 10px;
+            letter-spacing: -2px;
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        .error-message {
+            font-size: 24px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .error-description {
+            font-size: 16px;
+            color: #718096;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: #3182ce;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            border-radius: 25px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px -1px rgba(49, 130, 206, 0.2), 0 2px 4px -1px rgba(49, 130, 206, 0.1);
+        }
+
+        .home-btn:hover {
+            background-color: #2b6cb0;
+            transform: translateY(-2px);
+            box-shadow: 0 7px 14px -3px rgba(49, 130, 206, 0.3), 0 4px 6px -2px rgba(49, 130, 206, 0.2);
+        }
+
+        .home-btn:active {
+            transform: translateY(0);
+        }
+
+        /* 简单的浮动微动画 */
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- 404 数字 -->
+        <div class="error-code">404</div>
+        
+        <!-- 核心提示 -->
+        <h1 class="error-message">糟糕，页面不见了</h1>
+        
+        <!-- 辅助描述 -->
+        <p class="error-description">
+            你访问的链接可能已经失效，或者输入的网址有误。
+            请检查后重试，或者点击下方按钮返回首页。
+        </p>
+        
+        <!-- 返回首页按钮 -->
+        <a href="/" class="home-btn">返回首页</a>
+    </div>
+
+</body>
+</html>
