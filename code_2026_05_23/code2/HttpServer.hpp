@@ -149,12 +149,12 @@ public:
             SetCode(200);
         }
         filesize = Util::FileSize(_targetfile);
-        SetHeader("Content_Length", std::to_string(filesize));
+        SetHeader("Content-Length", std::to_string(filesize));
 
         std::string suffix = Uri2Suffix();
         if(suffix != "")
         {
-            SetHeader("Content_Type", suffix);
+            SetHeader("Content-Type", suffix);
         }
     }
 
